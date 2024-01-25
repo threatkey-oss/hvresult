@@ -1,0 +1,5 @@
+# default `gitops download` directory
+/vault-policy
+
+# goreleaser
+dist/

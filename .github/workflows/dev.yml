@@ -1,0 +1,39 @@
+name: dev
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: build + test
+    runs-on: ubuntu-latest
+    steps:
+      - name: restore cached /bin/vault
+        uses: actions/cache/restore@v4
+        id: bin-vault-restore
+        with:
+          path: /home/runner/.local/bin/vault
+          key: bin-vault
+      - name: download + install Vault
+        if: steps.bin-vault-restore.outputs.cache-hit != 'true'
+        run: |
+          curl -L 'https://releases.hashicorp.com/vault/1.14.8/vault_1.14.8_linux_amd64.zip' --output vault.zip
+          unzip vault.zip -d /home/runner/.local/bin
+      - name: cache /bin/vault
+        if: steps.bin-vault-restore.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: /home/runner/.local/bin/vault
+          key: bin-vault
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: go build -v ./...
+      - run: go test -v ./...
