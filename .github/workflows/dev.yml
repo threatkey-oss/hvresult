@@ -32,7 +32,7 @@ jobs:
           path: /home/runner/.local/bin/vault
           key: bin-vault
       - uses: actions/checkout@v4
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
       - run: go build -v ./...
