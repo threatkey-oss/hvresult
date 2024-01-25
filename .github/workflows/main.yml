@@ -1,0 +1,30 @@
+name: main
+
+on:
+  workflow_run:
+    branches:
+      - main
+    workflows:
+      - dev
+    types:
+      - completed
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v4
+        with:
+          go-version-file: go.mod
+      - run: go install github.com/goreleaser/goreleaser@v1.23.0
+      - run: goreleaser release --snapshot --clean
+      - name: upload dist/*.tar.gz, dist/*.zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: |
+            dist/*.tar.gz
+            dist/*.zip
+          compression-level: 0
+          retention-days: 1
