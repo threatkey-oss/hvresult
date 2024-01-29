@@ -8,7 +8,7 @@ See `[our blog post about hvresult]()` for more details.
 
 # Usage and example output
 
-As per usual with Go tools, you can install with `go install` or extract [a release binary](https://github.com/threatkey-oss/hvresult/releases) to your `$PATH`.
+As per usual with Go tools, you can install with `go install` or extract [a release binary](https://github.com/threatkey-oss/hvresult/releases/latest) to your `$PATH`.
 
 ```
 go install github.com/threatkey-oss/hvresult@latest
