@@ -4,8 +4,6 @@
 
 Like [gpresult](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/gpresult) for Group Policy objects, hvresult computes the Resultant Set of Policy (RSoP) for Hashicorp Vault ACLs.
 
-See `[our blog post about hvresult]()` for more details.
-
 # Usage and example output
 
 As per usual with Go tools, you can install with `go install` or extract [a release binary](https://github.com/threatkey-oss/hvresult/releases/latest) to your `$PATH`.
