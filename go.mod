@@ -9,7 +9,7 @@ require (
 	github.com/hashicorp/vault/api v1.10.0
 	github.com/hashicorp/vault/sdk v0.10.2
 	github.com/mitchellh/mapstructure v1.5.0
-	github.com/rs/zerolog v1.31.0
+	github.com/rs/zerolog v1.32.0
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.18.2
 	golang.org/x/sync v0.6.0
