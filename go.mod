@@ -7,7 +7,7 @@ require (
 	github.com/google/go-cmp v0.6.0
 	github.com/hashicorp/hcl/v2 v2.19.1
 	github.com/hashicorp/vault/api v1.10.0
-	github.com/hashicorp/vault/sdk v0.10.2
+	github.com/hashicorp/vault/sdk v0.11.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/rs/zerolog v1.32.0
 	github.com/spf13/cobra v1.8.0
